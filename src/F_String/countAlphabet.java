@@ -11,6 +11,7 @@ public class countAlphabet {
         String word = br.readLine().toUpperCase();
         ArrayList<Character> C = new ArrayList<>();
         int[] count = new int[word.length()];
+        br.close();
 
         for (int i = 0; i < word.length(); i++) {
             char currChar = word.charAt(i);
