@@ -1,4 +1,4 @@
-package D_Arrays;
+package Baekjoon.D_Arrays;
 
 import java.io.*;
 import java.util.Arrays;

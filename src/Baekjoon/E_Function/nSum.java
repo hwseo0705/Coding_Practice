@@ -1,4 +1,4 @@
-package E_Function;
+package Baekjoon.E_Function;
 
 public class nSum {
     public static void main(String[] args) {

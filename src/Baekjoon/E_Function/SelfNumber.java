@@ -1,4 +1,4 @@
-package E_Function;
+package Baekjoon.E_Function;
 
 import java.util.ArrayList;
 

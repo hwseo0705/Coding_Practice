@@ -1,4 +1,4 @@
-package C_Loop;
+package Baekjoon.C_Loop;
 
 import java.io.BufferedReader;
 import java.io.IOException;

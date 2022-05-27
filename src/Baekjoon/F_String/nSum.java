@@ -1,4 +1,4 @@
-package F_String;
+package Baekjoon.F_String;
 
 import java.io.BufferedReader;
 import java.io.IOException;

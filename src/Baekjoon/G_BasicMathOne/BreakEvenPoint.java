@@ -1,4 +1,4 @@
-package G_BasicMathOne;
+package Baekjoon.G_BasicMathOne;
 
 import java.io.BufferedReader;
 import java.io.IOException;
