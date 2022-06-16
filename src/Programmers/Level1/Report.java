@@ -1,9 +1,7 @@
 package Programmers.Level1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.sql.Array;
+import java.util.*;
 
 public class Report {
     public static int[] solution(String[] id_list, String[] report, int k) {
@@ -12,40 +10,31 @@ public class Report {
 
         // id_list to arraylist
         List<String> idList = Arrays.asList(id_list);
-        // final report of names that were reported k times and more
-        List<String> reportFinal = new ArrayList<>();
         // map who reported who
-        HashMap<String, List<String>> map = new HashMap<>();
-        // map who got reported how many times
-        HashMap<String, Integer> count = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
 
-        // initialize
-        for (String id : id_list) {
-            map.put(id, new ArrayList<String>());
-            count.put(id, 0);
-        }
-
-        // put values in map and count
         for (int i = 0; i < report.length; i++) {
-            String[] split = report[i].split(" ");
-            String userId = split[0];
-            String reportedUser = split[1];
-            if (!map.get(userId).contains(reportedUser)) {
-                map.get(userId).add(reportedUser);
-                count.put(reportedUser, count.get(reportedUser) + 1);
-                if (count.get(reportedUser) >= k) reportFinal.add(reportedUser);
+            String user = report[i].split(" ")[0];
+            String reportedUser = report[i].split(" ")[1];
+
+            if (map.get(reportedUser) != null) {
+                if (!map.get(reportedUser).contains(user)) {
+                    map.get(reportedUser).add(user);
+                }
+            } else {
+                List<String> l = new ArrayList<>();
+                l.add(user);
+                map.put(reportedUser, l);
             }
         }
 
-        // count how many the 'id' reported were actually reported
-        for (String id : map.keySet()) {
-            int howManyReported = 0;
-            for (String s : reportFinal) {
-                if (map.get(id).contains(s)) howManyReported++;
+        for (String key : map.keySet()) {
+            if (map.get(key).size() >= k) {
+                for (int j = 0; j < map.get(key).size(); j++) {
+                    answer[idList.indexOf(map.get(key).get(j))]++;
+                }
             }
-            answer[idList.indexOf(id)] = howManyReported;
         }
-
         return answer;
     }
 
